@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - AuctionHouse</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-icon">⚜️</span>
+        <span class="logo-text">AuctionHouse</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#auctions">Auctions</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+        <button class="btn-nav" id="loginBtn">Login</button>
+        <button class="btn-nav btn-primary" id="registerBtn">Register</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>AuctionHouse Blog</h1>
+      <p>Auction news, featured items, and market insights</p>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <div class="container">
+      <div class="blog-grid" id="blogGrid"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-section">
+        <h4>AuctionHouse</h4>
+        <p>Your premier destination for fine art and collectibles</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>📍 123 Auction Street, New York</p>
+        <p>📞 +1 (555) 123-4567</p>
+        <p>📧 info@auctionhouse.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 AuctionHouse. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    function loadBlog() {
+      const blogGrid = document.getElementById('blogGrid');
+      if (!blogGrid) return;
+      
+      const blogPosts = [
+        {
+          id: 1,
+          title: "Understanding Auction Valuations",
+          excerpt: "Learn how experts determine the value of collectible items and what factors influence auction prices.",
+          date: "2024-01-15",
+          author: "Dr. Victoria Monroe",
+          category: "Market Insights",
+          image: "https://via.placeholder.com/400x250?text=Valuations"
+        },
+        {
+          id: 2,
+          title: "The Rising Value of Vintage Watches",
+          excerpt: "Explore why classic timepieces continue to appreciate and how to identify valuable watches.",
+          date: "2024-01-12",
+          author: "Michael Chen",
+          category: "Featured Items",
+          image: "https://via.placeholder.com/400x250?text=Vintage+Watches"
+        },
+        {
+          id: 3,
+          title: "Contemporary Art Market Trends",
+          excerpt: "An in-depth analysis of current trends in contemporary art auctions and what collectors should know.",
+          date: "2024-01-10",
+          author: "James Richardson",
+          category: "Market Insights",
+          image: "https://via.placeholder.com/400x250?text=Art+Trends"
+        },
+        {
+          id: 4,
+          title: "How to Prepare Your Item for Auction",
+          excerpt: "Tips and best practices for sellers looking to maximize their item's value at auction.",
+          date: "2024-01-08",
+          author: "Caroline Fischer",
+          category: "Seller Guide",
+          image: "https://via.placeholder.com/400x250?text=Seller+Guide"
+        },
+        {
+          id: 5,
+          title: "Rare Coins: A Collector's Guide",
+          excerpt: "Everything you need to know about collecting rare coins and numismatic rarities.",
+          date: "2024-01-05",
+          author: "David Park",
+          category: "Featured Items",
+          image: "https://via.placeholder.com/400x250?text=Rare+Coins"
+        },
+        {
+          id: 6,
+          title: "Investment Strategies for Collectors",
+          excerpt: "Learn how to build a valuable collection while managing risk and maximizing returns.",
+          date: "2024-01-02",
+          author: "James Richardson",
+          category: "Market Insights",
+          image: "https://via.placeholder.com/400x250?text=Investment"
+        }
+      ];
+
+      blogGrid.innerHTML = blogPosts.map(post => `
+        <article class="blog-card">
+          <img src="${post.image}" alt="${post.title}">
+          <div class="blog-content">
+            <span class="blog-category">${post.category}</span>
+            <h3>${post.title}</h3>
+            <p>${post.excerpt}</p>
+            <div class="blog-meta">
+              <span>${new Date(post.date).toLocaleDateString()}</span>
+              <span>By ${post.author}</span>
+            </div>
+            <a href="#" class="btn-link">Read More →</a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', loadBlog);
+  </script>
+</body>
+</html>

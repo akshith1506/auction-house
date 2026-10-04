@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bidder Dashboard - AuctionHouse</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-icon">⚜️</span>
+        <span class="logo-text">AuctionHouse</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#auctions">Auctions</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+        <button class="btn-nav" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="dashboard-container">
+    <div class="container dashboard-grid">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <div class="sidebar-menu">
+          <a href="#" class="menu-item active" onclick="showDashboardSection('overview')">📊 Overview</a>
+          <a href="#" class="menu-item" onclick="showDashboardSection('my-bids')">🎯 My Bids</a>
+          <a href="#" class="menu-item" onclick="showDashboardSection('watchlist')">❤️ Watchlist</a>
+          <a href="#" class="menu-item" onclick="showDashboardSection('won-items')">🏆 Won Items</a>
+          <a href="#" class="menu-item" onclick="showDashboardSection('profile')">👤 Profile</a>
+          <a href="#" class="menu-item" onclick="showDashboardSection('payment')">💳 Payment History</a>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="dashboard-content">
+        <!-- Overview Section -->
+        <section id="overview" class="dashboard-section">
+          <h1>Dashboard</h1>
+          <div class="stats-grid-dashboard">
+            <div class="stat-box">
+              <h3>12</h3>
+              <p>Active Bids</p>
+            </div>
+            <div class="stat-box">
+              <h3>$45,320</h3>
+              <p>Total Bid Amount</p>
+            </div>
+            <div class="stat-box">
+              <h3>8</h3>
+              <p>Items Won</p>
+            </div>
+            <div class="stat-box">
+              <h3>23</h3>
+              <p>Watchlisted Items</p>
+            </div>
+          </div>
+
+          <div class="recent-activity">
+            <h2>Recent Activity</h2>
+            <div class="activity-list">
+              <div class="activity-item">
+                <span class="activity-icon">🎯</span>
+                <div class="activity-info">
+                  <p>Placed bid on "Vintage Rolex Watch"</p>
+                  <small>2 hours ago</small>
+                </div>
+                <strong>$5,200</strong>
+              </div>
+              <div class="activity-item">
+                <span class="activity-icon">❤️</span>
+                <div class="activity-info">
+                  <p>Added "Modern Art Sculpture" to watchlist</p>
+                  <small>5 hours ago</small>
+                </div>
+              </div>
+              <div class="activity-item">
+                <span class="activity-icon">🏆</span>
+                <div class="activity-info">
+                  <p>Won auction for "Antique Vase"</p>
+                  <small>1 day ago</small>
+                </div>
+                <strong>$2,800</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- My Bids Section -->
+        <section id="my-bids" class="dashboard-section hidden">
+          <h2>My Bids</h2>
+          <div class="bids-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Category</th>
+                  <th>My Bid</th>
+                  <th>Current Bid</th>
+                  <th>Status</th>
+                  <th>Ends In</th>
+                </tr>
+              </thead>
+              <tbody id="bidsTableBody">
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Watchlist Section -->
+        <section id="watchlist" class="dashboard-section hidden">
+          <h2>Watchlist</h2>
+          <div class="watchlist-grid" id="watchlistGrid"></div>
+        </section>
+
+        <!-- Won Items Section -->
+        <section id="won-items" class="dashboard-section hidden">
+          <h2>Won Items</h2>
+          <div class="won-items-grid" id="wonItemsGrid"></div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="dashboard-section hidden">
+          <h2>User Profile</h2>
+          <form class="profile-form">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" value="John Collector" required>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" value="john@example.com" required>
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" value="+1 (555) 123-4567" required>
+            </div>
+            <div class="form-group">
+              <label>Address</label>
+              <textarea>123 Collector Street\nNew York, NY 10001</textarea>
+            </div>
+            <div class="form-group">
+              <label>Preferred Payment Method</label>
+              <select>
+                <option>Credit Card</option>
+                <option>Bank Transfer</option>
+                <option>Wire Transfer</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </form>
+        </section>
+
+        <!-- Payment History Section -->
+        <section id="payment" class="dashboard-section hidden">
+          <h2>Payment History</h2>
+          <div class="payment-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Item</th>
+                  <th>Amount</th>
+                  <th>Payment Method</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2024-01-10</td>
+                  <td>Vintage Rolex Watch</td>
+                  <td>$5,200</td>
+                  <td>Credit Card</td>
+                  <td><span class="status-completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>2024-01-09</td>
+                  <td>Antique Vase</td>
+                  <td>$2,800</td>
+                  <td>Bank Transfer</td>
+                  <td><span class="status-completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>2024-01-05</td>
+                  <td>Art Painting</td>
+                  <td>$8,500</td>
+                  <td>Credit Card</td>
+                  <td><span class="status-completed">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-section">
+        <h4>AuctionHouse</h4>
+        <p>Your premier destination for fine art and collectibles</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>📍 123 Auction Street, New York</p>
+        <p>📞 +1 (555) 123-4567</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

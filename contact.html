@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - AuctionHouse</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-icon">⚜️</span>
+        <span class="logo-text">AuctionHouse</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#auctions">Auctions</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+        <button class="btn-nav" id="loginBtn">Login</button>
+        <button class="btn-nav btn-primary" id="registerBtn">Register</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <div class="info-card">
+            <h3>📍 Address</h3>
+            <p>123 Auction Street<br>New York, NY 10001<br>United States</p>
+          </div>
+          <div class="info-card">
+            <h3>📞 Phone</h3>
+            <p>+1 (555) 123-4567<br>Mon - Fri: 9AM - 6PM EST</p>
+          </div>
+          <div class="info-card">
+            <h3>📧 Email</h3>
+            <p>info@auctionhouse.com<br>support@auctionhouse.com</p>
+          </div>
+          <div class="info-card">
+            <h3>🕐 Hours</h3>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h2>Send us a Message</h2>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <input type="tel" placeholder="Your Phone" required>
+          <select required>
+            <option value="">Select Subject</option>
+            <option value="bidding">Bidding Inquiry</option>
+            <option value="selling">Selling Items</option>
+            <option value="valuation">Valuation Request</option>
+            <option value="technical">Technical Support</option>
+            <option value="other">Other</option>
+          </select>
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-section">
+        <h4>AuctionHouse</h4>
+        <p>Your premier destination for fine art and collectibles</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>📍 123 Auction Street, New York</p>
+        <p>📞 +1 (555) 123-4567</p>
+        <p>📧 info@auctionhouse.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 AuctionHouse. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuctionHouse - Premium Online Auctions</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-icon">⚜️</span>
+        <span class="logo-text">AuctionHouse</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li class="dropdown">
+          <a href="#auctions">Auctions ▼</a>
+          <ul class="dropdown-menu">
+            <li><a href="#" onclick="filterByCategory('all')">All Auctions</a></li>
+            <li><a href="#" onclick="filterByCategory('art')">Art & Paintings</a></li>
+            <li><a href="#" onclick="filterByCategory('antiques')">Antiques</a></li>
+            <li><a href="#" onclick="filterByCategory('jewelry')">Jewelry & Watches</a></li>
+            <li><a href="#" onclick="filterByCategory('automobiles')">Luxury Cars</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+        <button class="btn-nav" id="loginBtn">Login</button>
+        <button class="btn-nav btn-primary" id="registerBtn">Register</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Discover Extraordinary Pieces</h1>
+      <p>Bid on fine art, antiques, jewelry, and luxury collectibles from around the world</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="document.getElementById('auctionSection').scrollIntoView({behavior: 'smooth'})">Explore Auctions</button>
+        <button class="btn btn-secondary" onclick="openSellModal()">Sell Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Auctions -->
+  <section class="featured-section">
+    <div class="container">
+      <h2>Featured Auctions</h2>
+      <div class="featured-grid" id="featuredGrid"></div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories-section">
+    <div class="container">
+      <h2>Browse by Category</h2>
+      <div class="categories-grid">
+        <div class="category-card" onclick="filterByCategory('art')">
+          <div class="category-icon">🖼️</div>
+          <h3>Art & Paintings</h3>
+          <p>Modern and classical artworks</p>
+        </div>
+        <div class="category-card" onclick="filterByCategory('antiques')">
+          <div class="category-icon">🏺</div>
+          <h3>Antiques & Collectibles</h3>
+          <p>Rare and vintage treasures</p>
+        </div>
+        <div class="category-card" onclick="filterByCategory('jewelry')">
+          <div class="category-icon">💎</div>
+          <h3>Jewelry & Watches</h3>
+          <p>Luxury timepieces and gems</p>
+        </div>
+        <div class="category-card" onclick="filterByCategory('automobiles')">
+          <div class="category-icon">🚗</div>
+          <h3>Luxury Automobiles</h3>
+          <p>Classic and modern vehicles</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Auction Listings -->
+  <section class="auction-section" id="auctionSection">
+    <div class="container">
+      <h2>All Auctions</h2>
+      <div class="filters">
+        <input type="text" id="searchInput" placeholder="Search auctions..." class="search-input">
+        <select id="categoryFilter" onchange="applyFilters()" class="filter-select">
+          <option value="all">All Categories</option>
+          <option value="art">Art & Paintings</option>
+          <option value="antiques">Antiques & Collectibles</option>
+          <option value="jewelry">Jewelry & Watches</option>
+          <option value="automobiles">Luxury Automobiles</option>
+        </select>
+        <select id="sortFilter" onchange="applyFilters()" class="filter-select">
+          <option value="newest">Newest First</option>
+          <option value="ending-soon">Ending Soon</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+        </select>
+        <button class="btn btn-secondary" onclick="resetFilters()">Reset</button>
+      </div>
+      <div class="auctions-grid" id="auctionsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2>What Our Collectors Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>"The most reliable platform for authentic collectibles. I've found some incredible pieces here."</p>
+          <h4>Emma Johnson</h4>
+          <span>Art Collector</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"Exceptional service and transparent bidding. Highly recommend for serious collectors."</p>
+          <h4>Michael Chen</h4>
+          <span>Watch Enthusiast</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"The best place to sell my vintage collection. Professional team and fair pricing."</p>
+          <h4>Sarah Williams</h4>
+          <span>Seller</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-section">
+        <h4>AuctionHouse</h4>
+        <p>Your premier destination for fine art and collectibles</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>📍 123 Auction Street, New York</p>
+        <p>📞 +1 (555) 123-4567</p>
+        <p>📧 info@auctionhouse.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 AuctionHouse. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('loginModal')">&times;</span>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#" onclick="openRegisterModal()">Register here</a></p>
+    </div>
+  </div>
+
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('registerModal')">&times;</span>
+      <h2>Register as Bidder</h2>
+      <form id="registerForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm Password" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <label><input type="checkbox" required> I agree to Terms & Conditions</label>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="auctionDetailModal" class="modal large-modal">
+    <div class="modal-content large">
+      <span class="close" onclick="closeModal('auctionDetailModal')">&times;</span>
+      <div class="auction-detail" id="auctionDetail"></div>
+    </div>
+  </div>
+
+  <div id="sellModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('sellModal')">&times;</span>
+      <h2>Sell with AuctionHouse</h2>
+      <p>Start by creating an account as a seller to list your items for auction.</p>
+      <button class="btn btn-primary" onclick="openRegisterModal()">Create Seller Account</button>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/countdown.js"></script>
+</body>
+</html>
